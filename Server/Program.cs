@@ -1,5 +1,11 @@
+using Blazored.Toast;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Hosting;
 using Serilog;
+using Server.Authentication;
 using Server.Components;
+using Server.Services;
+using System.Runtime.Intrinsics.Arm;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +28,15 @@ builder.Host.UseSerilog();
 // Add services to the container.
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
+builder.Services.AddTransient<TokenExpiryHandler>();
 builder.Services.AddHttpClient();
+builder.Services.AddScoped<StateContainer>();
+builder.Services.AddSingleton<CacheService>();
+builder.Services.AddScoped<AuthenticationProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, AuthenticationProvider>();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddBlazoredToast();
+builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
 
 var app = builder.Build();
 
