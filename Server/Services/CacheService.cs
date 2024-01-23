@@ -5,7 +5,7 @@ namespace Server.Services
     public class CacheService
     {
         private readonly ConcurrentDictionary<string, object> _cache = new ConcurrentDictionary<string, object>();
-        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30); // Adjust as needed
+        private readonly TimeSpan _cacheDuration = TimeSpan.FromMinutes(30); // 30 minutes, you can adjust as needed
 
         public async Task<T> GetAsync<T>(string key)
         {
