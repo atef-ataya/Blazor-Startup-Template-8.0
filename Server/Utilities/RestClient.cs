@@ -55,10 +55,8 @@ namespace Server.Utilities
 
                     if (!result.IsSuccessStatusCode)
                     {
-                        // Log the details of the failed response
                         _logger.LogInformation($"HTTP Request Failed: {result.StatusCode}, Content: {content}");
 
-                        // Optionally, you can throw a custom exception here
                         throw new HttpRequestException($"Request to {url} failed with status code {result.StatusCode}");
                     }
 
