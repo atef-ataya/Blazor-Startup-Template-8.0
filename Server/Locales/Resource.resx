@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutContent" xml:space="preserve">
+    <value>Abu Dhabi Police General Headquarters is committed to provide customers with the best service possible and to receive and tackle complaints to ensure that these complaints are not going to be repeated. Besides, it will organize all types and degrees of seriousness of the complaint process for customers and allows all customers, suppliers and partners to express their opinions, comments and feedback, file complaints about a service or an incident.</value>
+  </data>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="applicationError" xml:space="preserve">
+    <value>Something Went Wrong. Please Try After Sometime</value>
+  </data>
+  <data name="applicationSuccessSubmit" xml:space="preserve">
+    <value>Your application has been submitted successfuly, your application ID:</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Abu Dhabi Police CAS System </value>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="btnComplaint" xml:space="preserve">
+    <value>New Complaint</value>
+  </data>
+  <data name="btnCreate" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="btnFollowUp" xml:space="preserve">
+    <value>Follow Up</value>
+  </data>
+  <data name="CallTimes" xml:space="preserve">
+    <value>Favorite Time for Communication</value>
+  </data>
+  <data name="cancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CaptchaErrorMessage" xml:space="preserve">
+    <value>The value you entered is not correct.</value>
+  </data>
+  <data name="CaptchaMessage" xml:space="preserve">
+    <value>Please enter the code</value>
+  </data>
+  <data name="ChannedId" xml:space="preserve">
+    <value>Channel Id</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="companyNo" xml:space="preserve">
+    <value>Company Number</value>
+  </data>
+  <data name="companyNoRequired" xml:space="preserve">
+    <value>Company Number is Required</value>
+  </data>
+  <data name="complainApplicationName" xml:space="preserve">
+    <value>Complaints</value>
+  </data>
+  <data name="ComplainerType" xml:space="preserve">
+    <value>Complainer Type</value>
+  </data>
+  <data name="ComplainerTypeError" xml:space="preserve">
+    <value>Complainer Type Error</value>
+  </data>
+  <data name="ComplaintAgainstDriver" xml:space="preserve">
+    <value>Complaint Against Driver</value>
+  </data>
+  <data name="ComplaintAgainstTrafficFines" xml:space="preserve">
+    <value>Complaint Against Traffic Fines</value>
+  </data>
+  <data name="ComplaintAgainstVehicle" xml:space="preserve">
+    <value>Complaint Against Traffic Fine</value>
+  </data>
+  <data name="ComplaintAgianstViolation" xml:space="preserve">
+    <value>Objection to a traffic violation</value>
+  </data>
+  <data name="complaintid" xml:space="preserve">
+    <value>Complaint ID</value>
+  </data>
+  <data name="ComplaintKind" xml:space="preserve">
+    <value>Complaint Kind</value>
+  </data>
+  <data name="ComplaintKindRequired" xml:space="preserve">
+    <value>Complaint kind must be selected</value>
+  </data>
+  <data name="ComplaintTraffic" xml:space="preserve">
+    <value>Traffic Complaints</value>
+  </data>
+  <data name="complainttype" xml:space="preserve">
+    <value>Complaint Type</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+  <data name="CreateButton" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="CurrentPage" xml:space="preserve">
+    <value>New Complaint</value>
+  </data>
+  <data name="customerSolution" xml:space="preserve">
+    <value>Customer Solution</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Live Streaming Video with Abu Dhabi Police GHQ</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="detailRequired" xml:space="preserve">
+    <value>Must Enter Suggestion Detail</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DetailsRequired" xml:space="preserve">
+    <value>Complaint details must be entered</value>
+  </data>
+  <data name="EID" xml:space="preserve">
+    <value>Emirates ID</value>
+  </data>
+  <data name="EIDRequired" xml:space="preserve">
+    <value>Emirates ID must be entered</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailFormat" xml:space="preserve">
+    <value>Email format is invalid</value>
+  </data>
+  <data name="EmailInvalid" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Email must be entered</value>
+  </data>
+  <data name="EmiID" xml:space="preserve">
+    <value>Emirate</value>
+  </data>
+  <data name="EmiratesID" xml:space="preserve">
+    <value>Emirates ID</value>
+  </data>
+  <data name="EmiratesIdentityError" xml:space="preserve">
+    <value>Emirates Identity must be 15 digits</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>An error has occured while submitting your complaint</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="fileExtensions" xml:space="preserve">
+    <value>.jpeg, .png, .gif</value>
+  </data>
+  <data name="fileSize" xml:space="preserve">
+    <value>2 MB</value>
+  </data>
+  <data name="filesizeinfo" xml:space="preserve">
+    <value>Maximum upload file size: </value>
+  </data>
+  <data name="filetype" xml:space="preserve">
+    <value>File Type:</value>
+  </data>
+  <data name="fineNumber" xml:space="preserve">
+    <value>Fine Number</value>
+  </data>
+  <data name="fineType" xml:space="preserve">
+    <value>Fine Type</value>
+  </data>
+  <data name="FollowUp" xml:space="preserve">
+    <value>FollowUp Complaint's Status</value>
+  </data>
+  <data name="formTitle" xml:space="preserve">
+    <value>Please fill out the form below</value>
+  </data>
+  <data name="GenderRequired" xml:space="preserve">
+    <value>Gender is Required</value>
+  </data>
+  <data name="GenderType" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="generalError" xml:space="preserve">
+    <value>This field is required</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="homePage" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ImageInvalid" xml:space="preserve">
+    <value>Invalid Image Type (Only jpg,jpeg,png are allowed)</value>
+  </data>
+  <data name="Kind" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="KindDetail" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="kindRequired" xml:space="preserve">
+    <value>Must select Suggestion Kind</value>
+  </data>
+  <data name="KnowYourRights" xml:space="preserve">
+    <value>Know Your Rights</value>
+  </data>
+  <data name="langArabic" xml:space="preserve">
+    <value>عربي</value>
+  </data>
+  <data name="langEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="lengthError" xml:space="preserve">
+    <value>Details should have minumum of 25 Characters</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Complaints And Suggestions</value>
+  </data>
+  <data name="MainSmall" xml:space="preserve">
+    <value>CAS</value>
+  </data>
+  <data name="MainType" xml:space="preserve">
+    <value>Main Type</value>
+  </data>
+  <data name="menuApplicationDesc" xml:space="preserve">
+    <value>Suggestion Details</value>
+  </data>
+  <data name="menuApplicationName" xml:space="preserve">
+    <value>Suggestion</value>
+  </data>
+  <data name="menuSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Mid" xml:space="preserve">
+    <value>Military Number</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile</value>
+  </data>
+  <data name="mobileError" xml:space="preserve">
+    <value>Mobile Number is not valie (ex:0501234567)</value>
+  </data>
+  <data name="MobileFormat" xml:space="preserve">
+    <value>Mobile format is invalid</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>Mobile Number</value>
+  </data>
+  <data name="mobileRequired" xml:space="preserve">
+    <value>Mobile Number must be entered</value>
+  </data>
+  <data name="modelName" xml:space="preserve">
+    <value>New Suggestion</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>Name in English</value>
+  </data>
+  <data name="nameRequired" xml:space="preserve">
+    <value>Name must be entered</value>
+  </data>
+  <data name="otpsent" xml:space="preserve">
+    <value>OTP has been sent to your mobile</value>
+  </data>
+  <data name="PlateCategory" xml:space="preserve">
+    <value>Plate Category</value>
+  </data>
+  <data name="plateColor" xml:space="preserve">
+    <value>Plate Color</value>
+  </data>
+  <data name="PlateColors" xml:space="preserve">
+    <value>Plate Color</value>
+  </data>
+  <data name="plateNo" xml:space="preserve">
+    <value>Plate Number</value>
+  </data>
+  <data name="plateNumber" xml:space="preserve">
+    <value>Plate Number</value>
+  </data>
+  <data name="plateNumberError" xml:space="preserve">
+    <value>Plate Number Should Contains Only Numbers</value>
+  </data>
+  <data name="PlateSource" xml:space="preserve">
+    <value>Plate Source</value>
+  </data>
+  <data name="pleaseselect" xml:space="preserve">
+    <value>Please Select</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="RequiredEmiratesIdentity" xml:space="preserve">
+    <value>You must enter value for the Emirates Identity</value>
+  </data>
+  <data name="requiredFields" xml:space="preserve">
+    <value>are required fields</value>
+  </data>
+  <data name="ResourcesKind" xml:space="preserve">
+    <value>Resource Kind</value>
+  </data>
+  <data name="ResourcesKindRequired" xml:space="preserve">
+    <value>Resource Kind Required</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="searchsubtitle" xml:space="preserve">
+    <value>Please search your registered complaints</value>
+  </data>
+  <data name="selectComplainttype" xml:space="preserve">
+    <value>Please select type of complaint you want to register.</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>Required Solution</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="StreamsList" xml:space="preserve">
+    <value>Live Streams List</value>
+  </data>
+  <data name="SubType" xml:space="preserve">
+    <value>Sub Type</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>Success!</value>
+  </data>
+  <data name="Suggestions" xml:space="preserve">
+    <value>Suggestions</value>
+  </data>
+  <data name="tandc" xml:space="preserve">
+    <value>I have read and agree to the Terms and Conditions</value>
+  </data>
+  <data name="Terms" xml:space="preserve">
+    <value>Terms and Conditions</value>
+  </data>
+  <data name="TermsAndConditions" xml:space="preserve">
+    <value>I have read and agree to the Terms and Conditions</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Live Streaming</value>
+  </data>
+  <data name="UID" xml:space="preserve">
+    <value>Unified ID Number</value>
+  </data>
+  <data name="UIDRequired" xml:space="preserve">
+    <value>Unified ID must be entered</value>
+  </data>
+  <data name="UnifiedID" xml:space="preserve">
+    <value>Unified ID</value>
+  </data>
+  <data name="UnifiedIDError" xml:space="preserve">
+    <value>The unified number contains numbers only</value>
+  </data>
+</root>
