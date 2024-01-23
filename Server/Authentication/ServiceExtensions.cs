@@ -9,8 +9,8 @@ namespace Server.Authentication
         public static void AddTokenAuthenticationStateProvider(this IServiceCollection services)
         {
             // Make the same instance accessible as both AuthenticationStateProvider and TokenAuthenticationStateProvider
-            services.AddScoped<ADPAuthenticationProvider>();
-            services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<ADPAuthenticationProvider>());
+            services.AddScoped<AuthenticationProvider>();
+            services.AddScoped<AuthenticationStateProvider>(provider => provider.GetRequiredService<AuthenticationProvider>());
         }
 
         public static IEnumerable<Claim> ParseClaimsFromJwt(string jwt)

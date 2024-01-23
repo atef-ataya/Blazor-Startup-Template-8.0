@@ -7,13 +7,13 @@ using Server.Services;
 
 namespace Server.Authentication
 {
-    public class ADPAuthenticationProvider : AuthenticationStateProvider
+    public class AuthenticationProvider : AuthenticationStateProvider
     {
         private readonly ILocalStorageService _localStorageService;
 
         private readonly NavigationManager navigationManager;
 
-        public ADPAuthenticationProvider(ILocalStorageService localStorageService, NavigationManager navigationManager)
+        public AuthenticationProvider(ILocalStorageService localStorageService, NavigationManager navigationManager)
         {
             _localStorageService = localStorageService;
             this.navigationManager = navigationManager;
