@@ -2,7 +2,6 @@
 {
     public class StateContainer
     {
-        // Cache Service
         private readonly CacheService _cacheService;
 
         private string? savedString;
