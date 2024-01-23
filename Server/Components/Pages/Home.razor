@@ -1,10 +1,14 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<PageTitle>@localizer["Home"]</PageTitle>
 
 @Thread.CurrentThread.CurrentCulture;
 @Thread.CurrentThread.CurrentUICulture;
 
-Welcome to your new app.
+<h1>@localizer["HomeTitle"]</h1>
+
+@code{
+    [Inject]
+    public IStringLocalizer<Resource> localizer {get; set;}
+}
