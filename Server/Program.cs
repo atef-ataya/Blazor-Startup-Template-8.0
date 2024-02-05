@@ -48,6 +48,9 @@ builder.Services
     })
     .AddBootstrapProviders()
     .AddFontAwesomeIcons();
+//Add empty providers
+builder.Services.AddEmptyProviders();
+// End Blazorise services
 
 var app = builder.Build();
 
