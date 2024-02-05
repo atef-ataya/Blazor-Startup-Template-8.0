@@ -4,6 +4,7 @@ using Server.Authentication;
 using Server.Components;
 using Server.Middleware;
 using Server.Services;
+using MudBlazor.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Add services to the container.
+builder.Services.AddMudServices();
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.Services.AddTransient<TokenExpiryHandler>();
