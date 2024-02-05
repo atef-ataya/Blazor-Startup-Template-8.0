@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Server.Authentication;
 using Server.Components;
+using Server.Middleware;
 using Server.Services;
 using System.Runtime.Intrinsics.Arm;
 
@@ -63,6 +64,7 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapControllers();
+app.UseMiddleware<RateLimitingMiddleware>();
 
 app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
 
