@@ -1,13 +1,10 @@
-using Blazored.Toast;
-using Blazorise;
 using Microsoft.AspNetCore.Components.Authorization;
 using Serilog;
 using Server.Authentication;
 using Server.Components;
 using Server.Middleware;
 using Server.Services;
-using Blazorise.Bootstrap;
-using Blazorise.Icons.FontAwesome;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,20 +34,7 @@ builder.Services.AddSingleton<CacheService>();
 builder.Services.AddScoped<AuthenticationProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider, AuthenticationProvider>();
 builder.Services.AddAuthorizationCore();
-builder.Services.AddBlazoredToast();
 builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
-
-// Add blazorise services   
-builder.Services
-    .AddBlazorise(options =>
-    {
-        options.Immediate = true;
-    })
-    .AddBootstrapProviders()
-    .AddFontAwesomeIcons();
-//Add empty providers
-builder.Services.AddEmptyProviders();
-// End Blazorise services
 
 var app = builder.Build();
 
