@@ -57,7 +57,7 @@ namespace Server.Utilities
                     {
                         _logger.LogInformation($"HTTP Request Failed: {result.StatusCode}, Content: {content}");
 
-                        throw new HttpRequestException($"Request to {url} failed with status code {result.StatusCode}");
+                        //throw new HttpRequestException($"Request to {url} failed with status code {result.StatusCode}");
                     }
 
                     var settings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
