@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Components
+@using System.Globalization;
+@inject NavigationManager Navigation
+
+
+
+<MudSelect Placeholder="Select culture" @bind-Value="CultureInfo" HelperText="CultureInfo" ToStringFunc="@convertFunc" CloseIcon="@Icons.Material.Filled.Flag" AdornmentColor="Color.Tertiary">
+    <MudSelectItem Value="@(CultureInfo.GetCultureInfo("en-US"))" />
+    <MudSelectItem Value="@(CultureInfo.GetCultureInfo("ar-SA"))" />
+</MudSelect>
+
+@code {
+    private CultureInfo cultureValue { get; set; }
+    private Func<CultureInfo, string> convertFunc = ci => ci?.DisplayName;
+
+    protected override void OnInitialized()
+    {
+        CultureInfo = CultureInfo.CurrentCulture;
+    }
+
+    private CultureInfo CultureInfo
+    {
+        get
+        {
+            return CultureInfo.CurrentCulture;
+        }
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var uri = new Uri(Navigation.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+                var uriEscaped = Uri.EscapeDataString(uri);
+
+                Navigation.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+            }
+        }
+    }
+}
