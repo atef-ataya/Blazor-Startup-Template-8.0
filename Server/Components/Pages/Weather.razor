@@ -12,27 +12,14 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <MudDataGrid Items="@forecasts" Filterable="false" Groupable="false">
+        <Columns>
+            <PropertyColumn Property="x => x.Date" />
+            <PropertyColumn Property="x => x.TemperatureC" />
+            <PropertyColumn Property="x => x.TemperatureF" />
+            <PropertyColumn Property="x => x.Summary" />
+        </Columns>
+    </MudDataGrid>
 }
 
 @code {
@@ -60,4 +47,6 @@ else
         public string? Summary { get; set; }
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
+
+
 }
