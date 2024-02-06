@@ -2,12 +2,74 @@
 
 <PageTitle>@localizer["Home"]</PageTitle>
 
-@Thread.CurrentThread.CurrentCulture;
-@Thread.CurrentThread.CurrentUICulture;
+<MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
 
-<h1>@localizer["HomeTitle"]</h1>
+<MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Secondary">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
+<MudSelect @bind-Value="transition" Label="Transition" Class="ma-2">
+    <MudSelectItem Value="@Transition.Fade">Fade</MudSelectItem>
+    <MudSelectItem Value="@Transition.Slide">Slide</MudSelectItem>
+    <MudSelectItem Value="@Transition.None">None</MudSelectItem>
+</MudSelect>
+<MudSwitch @bind-Checked="@arrows" Color="Color.Primary">Show Arrows</MudSwitch>
+<MudSwitch @bind-Checked="@bullets" Color="Color.Primary">Show Bullets</MudSwitch>
+<MudSwitch @bind-Checked="@enableSwipeGesture" Color="Color.Primary">Enable Swap Gesture</MudSwitch>
+<MudSwitch @bind-Checked="@autocycle" Color="Color.Primary">Auto Cycle (Default: 5 secs)</MudSwitch>
+
+<div>
+    <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px"></MudChart>
+</div>
+<MudText Typo="Typo.h6">Selected portion of the chart: @Index</MudText>
+
+<MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data" InputLabels="@labels">
+    <CustomGraphics>
+        <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+        <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+    </CustomGraphics>
+</MudChart>
 
 @code{
     [Inject]
     public IStringLocalizer<Resource> localizer {get; set;}
+
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
+
+    public List<ChartSeries> Series = new List<ChartSeries>()
+    {
+        new ChartSeries() { Name = "United States", Data = new double[] { 40, 20, 25, 27, 46, 60, 48, 80, 15 } },
+        new ChartSeries() { Name = "Germany", Data = new double[] { 19, 24, 35, 13, 28, 15, 13, 16, 31 } },
+        new ChartSeries() { Name = "Sweden", Data = new double[] { 8, 6, 11, 13, 4, 16, 10, 16, 18 } },
+    };
+    public string[] XAxisLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
+
+    public double[] data = { 25, 77, 28, 5 };
+    public string[] labels = { "Oil", "Coal", "Gas", "Biomass" };
+
+    private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Link 1", href: "#"),
+        new BreadcrumbItem("Link 2", href: null, disabled: true)
+    };
 }
