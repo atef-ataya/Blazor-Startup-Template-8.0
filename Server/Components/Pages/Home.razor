@@ -1,33 +1,78 @@
 ﻿@page "/"
+@using Server.Models
+@using System.Net.Http.Json
+@inject HttpClient httpClient
 
 <PageTitle>@localizer["Home"]</PageTitle>
 
 <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
 <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6" Outlined="true">
     <MudTabPanel Text="Tasks List" Icon="@Icons.Material.Filled.Task">
-       <MudGrid>
+        <MudGrid>
             <MudItem xs="3">
                 <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
-                        <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
-                            <CustomGraphics>
-                                <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
-                                <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
-                            </CustomGraphics>
-                        </MudChart>
+                    <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
+                        <CustomGraphics>
+                            <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+                            <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                        </CustomGraphics>
+                    </MudChart>
                 </MudPaper>
             </MudItem>
             <MudItem xs="3">
-                <div>
-                    <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="50%" Height="100px" xs="12" sm="6" md="4"></MudChart>
-                </div>
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                    <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
+                        <CustomGraphics>
+                            <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+                            <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                        </CustomGraphics>
+                    </MudChart>
+                </MudPaper>
             </MudItem>
             <MudItem xs="3">
-                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs</MudPaper>
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                    <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
+                        <CustomGraphics>
+                            <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+                            <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                        </CustomGraphics>
+                    </MudChart>
+                </MudPaper>
             </MudItem>
             <MudItem xs="3">
-                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                    <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
+                        <CustomGraphics>
+                            <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+                            <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                        </CustomGraphics>
+                    </MudChart>
+                </MudPaper>
             </MudItem>
-       </MudGrid>
+            <MudDataGrid T="Element" MultiSelection="true" Items="@Elements" SortMode="SortMode.Multiple" Filterable="true" QuickFilter="@_quickFilter"
+                         Hideable="true" RowClick="@RowClicked" RowContextMenuClick="RowRightClicked" SelectedItemsChanged="@SelectedItemsChanged">
+                <ToolBarContent>
+                    <MudText Typo="Typo.h6">Tasks List</MudText>
+                    <MudSpacer />
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Icon="@Icons.Material.Filled.PlusOne">New Task</MudButton>
+                    <MudSpacer />
+                    <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
+                                  AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </ToolBarContent>
+                <Columns>
+                    <SelectColumn T="Element" />
+                    <PropertyColumn Property="x => x.Number" Title="Nr" Sortable="false" Filterable="false" />
+                    <PropertyColumn Property="x => x.Sign" />
+                    <PropertyColumn Property="x => x.Name" SortBy="@_sortBy" />
+                    <PropertyColumn Property="x => x.Position" />
+                    <PropertyColumn Property="x => x.Molar" Title="Molar mass" />
+                    <PropertyColumn Property="x => x.Group" Title="Category" />
+                </Columns>
+                <PagerContent>
+                    <MudDataGridPager T="Element" />
+                </PagerContent>
+            </MudDataGrid>
+        </MudGrid>
     </MudTabPanel>
     <MudTabPanel Text="Calendar" Icon="@Icons.Material.Filled.CalendarMonth">
         <MudText>Content Two</MudText>
@@ -41,9 +86,9 @@
 </MudTabs>
 
 
-@code{
+@code {
     [Inject]
-    public IStringLocalizer<Resource> localizer {get; set;}
+    public IStringLocalizer<Resource> localizer { get; set; }
 
     private bool arrows = true;
     private bool bullets = true;
@@ -51,18 +96,9 @@
     private bool autocycle = true;
     private Transition transition = Transition.Slide;
 
-    private int Index = -1; //default value cannot be 0 -> first selectedindex is 0.
-
-    public List<ChartSeries> Series = new List<ChartSeries>()
-    {
-        new ChartSeries() { Name = "United States", Data = new double[] { 40, 20, 25, 27, 46, 60, 48, 80, 15 } },
-        new ChartSeries() { Name = "Germany", Data = new double[] { 19, 24, 35, 13, 28, 15, 13, 16, 31 } },
-        new ChartSeries() { Name = "Sweden", Data = new double[] { 8, 6, 11, 13, 4, 16, 10, 16, 18 } },
-    };
-    public string[] XAxisLabels = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep" };
-
+    // Donut Chart
     public double[] data = { 25, 77, 28, 5 };
-    public string[] labels = { "Oil", "Coal", "Gas", "Biomass" };
+    public string[] labels = { "HR", "Finance", "IT", "Law" };
 
     private List<BreadcrumbItem> _items = new List<BreadcrumbItem>
     {
@@ -70,6 +106,75 @@
         new BreadcrumbItem("Link 1", href: "#"),
         new BreadcrumbItem("Link 2", href: null, disabled: true)
     };
+    // END
 
     // Data Grid
+    private IEnumerable<Element> Elements = new List<Element>();
+    private string _searchString;
+    private bool _sortNameByLength;
+    private List<string> _events = new();
+    // custom sort by name length
+    private Func<Element, object> _sortBy => x =>
+    {
+        if (_sortNameByLength)
+            return x.Name.Length;
+        else
+            return x.Name;
+    };
+    // quick filter - filter globally across multiple columns with the same input
+    private Func<Element, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.Sign.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        if (x.Group.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if ($"{x.Number} {x.Position} {x.Molar}".Contains(_searchString))
+            return true;
+
+        return false;
+    };
+    protected override void OnInitialized()
+    {
+        Elements = new List<Element>
+        {
+            new Element { Number = "1", Name = "Hydrogen", Sign = "H", Position = "1.007", Molar = "6.941", Group = "Other" },
+            new Element { Number = "2", Name = "Helium", Sign = "He", Position = "2.0026", Molar = "4.0026", Group = "Noble gas" },
+            new Element { Number = "3", Name = "Lithium", Sign = "Li", Position = "3", Molar = "6.941", Group = "Alkali metal" },
+            new Element { Number = "3", Name = "Lithium", Sign = "Li", Position = "3", Molar = "6.941", Group = "Alkali metal" },
+            new Element { Number = "4", Name = "Beryllium", Sign = "Be", Position = "4", Molar = "9.0122", Group = "Alkaline earth metal" },
+            new Element { Number = "5", Name = "Boron", Sign = "B", Position = "5", Molar = "10.81", Group = "Metalloid" },
+            new Element { Number = "6", Name = "Carbon", Sign = "C", Position = "6", Molar = "12.011", Group = "Other nonmetal" },
+            new Element { Number = "7", Name = "Nitrogen", Sign = "N", Position = "7", Molar = "14.007", Group = "Other nonmetal" },
+            new Element { Number = "8", Name = "Oxygen", Sign = "O", Position = "8", Molar = "15.999", Group = "Other nonmetal" },
+            new Element { Number = "9", Name = "Fluorine", Sign = "F", Position = "9", Molar = "18.998", Group = "Other nonmetal" },
+            new Element { Number = "10", Name = "Neon", Sign = "Ne", Position = "10", Molar = "20.180", Group = "Noble gas" },
+            new Element { Number = "11", Name = "Sodium", Sign = "Na", Position = "11", Molar = "22.990", Group = "Alkali metal" },
+            new Element { Number = "12", Name = "Magnesium", Sign = "Mg", Position = "12", Molar = "24.305", Group = "Alkaline earth metal" },
+            new Element { Number = "13", Name = "Aluminum", Sign = "Al", Position = "13", Molar = "26.982", Group = "Post-transition metal" }
+        };
+    }
+
+    // events
+    void RowClicked(DataGridRowClickEventArgs<Element> args)
+    {
+        _events.Insert(0, $"Event = RowClick, Index = {args.RowIndex}, Data = {System.Text.Json.JsonSerializer.Serialize(args.Item)}");
+    }
+
+    void RowRightClicked(DataGridRowClickEventArgs<Element> args)
+    {
+        _events.Insert(0, $"Event = RowRightClick, Index = {args.RowIndex}, Data = {System.Text.Json.JsonSerializer.Serialize(args.Item)}");
+    }
+
+    void SelectedItemsChanged(HashSet<Element> items)
+    {
+        _events.Insert(0, $"Event = SelectedItemsChanged, Data = {System.Text.Json.JsonSerializer.Serialize(items)}");
+    }
+    // END
 }
