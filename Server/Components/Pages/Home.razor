@@ -3,63 +3,68 @@
 <PageTitle>@localizer["Home"]</PageTitle>
 
 <MudBreadcrumbs Items="_items" Separator=">"></MudBreadcrumbs>
+<MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6" Outlined="true">
+    <MudTabPanel Text="Tasks List" Icon="@Icons.Material.Filled.Task">
+       <MudGrid>
+            <MudItem xs="3">
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                        <MudChart ChartType="ChartType.Donut" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
+                            <CustomGraphics>
+                                <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
+                                <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
+                            </CustomGraphics>
+                        </MudChart>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="3">
+                <div>
+                    <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="50%" Height="100px" xs="12" sm="6" md="4"></MudChart>
+                </div>
+            </MudItem>
+            <MudItem xs="3">
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">
+                    <MudPaper Class="py-4 px-6 rounded-lg d-flex align-center">
+                        <div class="flex-grow-1">
+                            <MudText Typo="Typo.h6">Graphite on roof</MudText>
+                            <div class="d-flex align-center my-1">
+                                <MudAvatar Class="me-2 pa-4" Style="background-color: var(--mud-palette-primary-hover);" Size="Size.Small">
+                                    <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.TrendingDown" Size="Size.Small" />
+                                </MudAvatar>
+                                <MudText Typo="Typo.subtitle2">+2.6%</MudText>
+                            </div>
+                            <MudText Typo="Typo.h4">149,567</MudText>
+                        </div>
+                  @*       <div class="d-flex align-end justify-end mud-height-full py-8">
+                            <MudPaper Height="80%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="95%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="90%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="85%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="65%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="52%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="40%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="38%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="36%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                            <MudPaper Height="20%" Width="6px" Square="true" Class="mud-primary mr-1 rounded-t" />
+                        </div> *@
+                    </MudPaper>
+                </MudPaper>
+            </MudItem>
+            <MudItem xs="3">
+                <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+            </MudItem>
+       </MudGrid>
+    </MudTabPanel>
+    <MudTabPanel Text="Calendar" Icon="@Icons.Material.Filled.CalendarMonth">
+        <MudText>Content Two</MudText>
+    </MudTabPanel>
+    <MudTabPanel Text="Board" Icon="@Icons.Material.Filled.Dashboard">
+        <MudText>Content Three</MudText>
+    </MudTabPanel>
+    <MudTabPanel Text="Tab Disabled" Disabled="true">
+        <MudText>Content Disabled</MudText>
+    </MudTabPanel>
+</MudTabs>
 
-<MudGrid>
-    <MudItem xs="12">
-        <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
-            <MudCarouselItem Transition="transition" Color="@Color.Primary">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-            <MudCarouselItem Transition="transition" Color="@Color.Secondary">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-            <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-        </MudCarousel>
-        <MudSelect @bind-Value="transition" Label="Transition" Class="ma-2">
-            <MudSelectItem Value="@Transition.Fade">Fade</MudSelectItem>
-            <MudSelectItem Value="@Transition.Slide">Slide</MudSelectItem>
-            <MudSelectItem Value="@Transition.None">None</MudSelectItem>
-        </MudSelect>
-        <MudSwitch @bind-Checked="@arrows" Color="Color.Primary">Show Arrows</MudSwitch>
-        <MudSwitch @bind-Checked="@bullets" Color="Color.Primary">Show Bullets</MudSwitch>
-        <MudSwitch @bind-Checked="@enableSwipeGesture" Color="Color.Primary">Enable Swap Gesture</MudSwitch>
-        <MudSwitch @bind-Checked="@autocycle" Color="Color.Primary">Auto Cycle (Default: 5 secs)</MudSwitch>
-    </MudItem>
-    <MudItem xs="6">
-        <div>
-            <MudChart ChartType="ChartType.Bar" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="100%" Height="350px" xs="12" sm="6" md="4"></MudChart>
-        </div>
-        <MudText Typo="Typo.h6">Selected portion of the chart: @Index</MudText>
-    </MudItem>
-    <MudItem xs="6">
-        <MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data" InputLabels="@labels" xs="12" sm="6" md="4">
-            <CustomGraphics>
-                <text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Total</text>
-                <text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data.Sum().ToString()</text>
-            </CustomGraphics>
-        </MudChart>
-    </MudItem>
-    <MudItem xs="3">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
-    </MudItem>
-    <MudItem xs="3">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
-    </MudItem>
-    <MudItem xs="3">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
-    </MudItem>
-    <MudItem xs="3">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
-    </MudItem>
-</MudGrid>
 
 @code{
     [Inject]
@@ -90,4 +95,7 @@
         new BreadcrumbItem("Link 1", href: "#"),
         new BreadcrumbItem("Link 2", href: null, disabled: true)
     };
+
+    // Data Grid
+  
 }

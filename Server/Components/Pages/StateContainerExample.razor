@@ -2,14 +2,12 @@
 @implements IDisposable
 @inject StateContainer StateContainer
 
-<h1>State Container Example component</h1>
+<h1>Example</h1>
 
 <p>State Container component Property: <b>@StateContainer.SavedString</b></p>
 
 <p>
-    <button @onclick="ChangePropertyValue">
-        Change the Property from the State Container Example component
-    </button>
+    <MudButton Variant="Variant.Filled" Color="Color.Secondary" @onclick="ChangePropertyValue">Change</MudButton>
 </p>
 
 <Nested />
